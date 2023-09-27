@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
-<body>
-
-    <table>
-        <tr>
-            <td valign="top">
-                <ul>
+    <head>
+        <link rel="stylesheet" href="../../../styles.css" />
+        <link rel="stylesheet" href="../../KanbasNavigation/index.css" />
+        <link rel="stylesheet" href="../../Courses/CourseNavigation/index.css" />
+        <link rel="stylesheet" href="../../../lib/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="../../../lib/bootstrap/bootstrap.min.css" />
+    </head>
+    <body>
+        <div class="wd-flex-row-container">
+            <div class="wd-bg-color-black">
+                <ul class="wd-kanbas-navigation">
                     <li><a href="../../Account/AccountNavigation/index.html">Account</a></li>
-                    <li><a href="#">Dashboard</a></li>
-                    <li><a href="../../KanbasNavigation/index.html">Courses</a></li>
+                    <li class="wd-active"><a href="#">Dashboard</a></li>
+                    <li><a href="../../Courses/CourseNavigation/index.html">Courses</a></li>
                     <li><a href="#">Calendar</li>
                     <li><a href="#">Inbox</li>
                     <li><a href="#">History</li>
@@ -16,15 +21,14 @@
                     <li><a href="#">Commons</li>
                     <li><a href="#">Help</li>
                 </ul>
-            </td>
-
-            <td valign="top">
-                <ul>
+            </div>
+            <div>
+                <ul class="wd-course-navigation">
                     <li><a href="../Home/index.html">Home</a></li>
                     <li><a href="#">Modules</a></li>
                     <li><a href="#">Piazza</a></li>
                     <li><a href="#">Zoom Meetings</li>
-                    <li><a href="../Assignments/index.html">Assignments</li>
+                    <li class="wd-active"><a href="../Assignments/index.html">Assignments</li>
                     <li><a href="#">Quizzes</li>
                     <li><a href="../Grades/index.html">Grades</li>
                     <li><a href="#">People</li>
@@ -39,68 +43,66 @@
                     <li><a href="#">Syllabus</li>
                     <li><a href="../Settings/CourseDetails/index.html">Settings</li>
                 </ul>
-            </td>
-
-            <td valign="top">
+            </div>
+            <div class="wd-bg-color-red wd-flex-grow-1">
                 <button type="button">Collapse All</button>
-                <button type="button">View Progress</button>
-                <select id="publish-all">
-                    <option value="PUBLISH-ALL">Publish All</option>
-                </select>
-                <button type="button">Module</button>
-                <ul>
-                    <li>Week 0 - INTRO</li>
-                        <ul>
-                            <li>LEARNING OBJECTIVES</li>
-                                <ul>
-                                    <li>Introduction to the course</li>
-                                    <li>Learn what is Web Development</li>
-                                    <li>Creating a development environment</li>
-                                    <li>Creating a Web Application</li>
-                                    <li>Getting started with the 1st assignment</li>
-                                </ul>
-                            <li>READING</li>
-                                <ul>
-                                    <li>Full Stack Developer - Chapter 1 - Introduction</li>
-                                    <li>Full Stack Developer - Chapter 2 - Creating User Interfaces with HTML</li>
-                                </ul>
-                            <li>SLIDES</li>
-                                <ul>
-                                    <li><a href="#">Introduction to Web Development Links to an external site.</a></li>
-                                    <li><a href="#">Creating an HTTP server with Node.js Links to an external site.</a></li>
-                                    <li><a href="#">Creating a React Application Links to an external site.</a></li>
-                                </ul>
-                        </ul>
-                    <li>Week 1 - HTML</li>
-                        <ul>
-                            <li>LEARNING OBJECTIVES</li>
-                                <ul>
-                                    <li>Learn how to create user interfaces with HTML</li>
-                                    <li>Keep working on assignment 1</li>
-                                    <li>Deploy the assignment to Netlify</li>
-                                </ul>
-                            <li>READING</li>
-                                <ul>
-                                    <li>Full Stack Developer - Chapter 1 - Introduction</li>
-                                    <li>Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML</li>
-                                </ul>
-                        </ul>
-                </ul>
-            </td>
-
-            <td valign="top">
-                <h2>Course Status</h2>
-                    <button type="button">Unpublish</button>
-                    <button type="button">Published</button>
+                    <button type="button">View Progress</button>
+                    <select id="publish-all">
+                        <option value="PUBLISH-ALL">Publish All</option>
+                    </select>
+                    <button type="button">Module</button>
                     <ul>
-                        <li><a href="#">Import Existing Content</a></li>
-                        <li><a href="#">Import From Commons</a></li>
-                        <li><a href="#">Choose Home Page</a></li>
-                        <li><a href="#">View Course Stream</a></li>
-                        <li><a href="#">New Announcement</a></li>
-                        <li><a href="#">New Analytics</a></li>
-                        <li><a href="#">View Course Notifications</a></li>
+                        <li>Week 0 - INTRO</li>
+                            <ul>
+                                <li>LEARNING OBJECTIVES</li>
+                                    <ul>
+                                        <li>Introduction to the course</li>
+                                        <li>Learn what is Web Development</li>
+                                        <li>Creating a development environment</li>
+                                        <li>Creating a Web Application</li>
+                                        <li>Getting started with the 1st assignment</li>
+                                    </ul>
+                                <li>READING</li>
+                                    <ul>
+                                        <li>Full Stack Developer - Chapter 1 - Introduction</li>
+                                        <li>Full Stack Developer - Chapter 2 - Creating User Interfaces with HTML</li>
+                                    </ul>
+                                <li>SLIDES</li>
+                                    <ul>
+                                        <li><a href="#">Introduction to Web Development Links to an external site.</a></li>
+                                        <li><a href="#">Creating an HTTP server with Node.js Links to an external site.</a></li>
+                                        <li><a href="#">Creating a React Application Links to an external site.</a></li>
+                                    </ul>
+                            </ul>
+                        <li>Week 1 - HTML</li>
+                            <ul>
+                                <li>LEARNING OBJECTIVES</li>
+                                    <ul>
+                                        <li>Learn how to create user interfaces with HTML</li>
+                                        <li>Keep working on assignment 1</li>
+                                        <li>Deploy the assignment to Netlify</li>
+                                    </ul>
+                                <li>READING</li>
+                                    <ul>
+                                        <li>Full Stack Developer - Chapter 1 - Introduction</li>
+                                        <li>Full Stack Developer - Chapter 2 - Creating User Interfaces With HTML</li>
+                                    </ul>
+                            </ul>
                     </ul>
+            </div>
+            <div class="wd-bg-color-green">
+                <h2>Course Status</h2>
+                        <button type="button">Unpublish</button>
+                        <button type="button">Published</button>
+                        <ul>
+                            <li><a href="#">Import Existing Content</a></li>
+                            <li><a href="#">Import From Commons</a></li>
+                            <li><a href="#">Choose Home Page</a></li>
+                            <li><a href="#">View Course Stream</a></li>
+                            <li><a href="#">New Announcement</a></li>
+                            <li><a href="#">New Analytics</a></li>
+                            <li><a href="#">View Course Notifications</a></li>
+                        </ul>
                 <h2>Comming Up</h2>
                     <a href="#">View Calendar</a>
                     <ul>
@@ -108,9 +110,7 @@
                         <li><a href="#">Lecture CS4550.12631.202410 Sep 11 at 11:45am</a></li>
                         <li><a href="#">CS5610 06 SP23 Lecture Sep 11 at 6pm</a></li>
                     </ul>
-            </td>
-        </tr>
-    </table>
-
-</body>
+            </div>
+        </div>
+    </body>
 </html>

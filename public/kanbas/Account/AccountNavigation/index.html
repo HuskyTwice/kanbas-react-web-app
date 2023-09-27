@@ -1,29 +1,58 @@
-<table>
-    <td valign="top">
-        <ul>
-            <li><a href="../AccountNavigation/index.html">Account</a></li>
-            <li><a href="#">Dashboard</a></li>
-            <li><a href="../../Courses/CourseNavigation/index.html">Courses</a></li>
-            <li><a href="#">Calendar</li>
-            <li><a href="#">Inbox</li>
-            <li><a href="#">History</li>
-            <li><a href="#">Studio</li>
-            <li><a href="#">Commons</li>
-            <li><a href="#">Help</li>
-        </ul>
-    </td>
+<link rel="stylesheet" href="../../../lib/bootstrap/bootstrap.min.css" />
+<link rel="stylesheet" href="../../../styles.css" />
+<link rel="stylesheet" href="../../../lib/font-awesome/css/font-awesome.css" />
+<link rel="stylesheet" href="../../KanbasNavigation/index.css"/>
+<link rel="stylesheet" href="../../Courses/CourseNavigation/index.css"/>
+<link rel="stylesheet" href="index.css"/>
 
-    <td valign="top">
-        <ul>
-            <li><a href="#">Notification</a></li>
-            <li><a href="../Profile/index.html">Profile</a></li>
-            <li><a href="#">Files</a></li>
-            <li><a href="#">Settings</li>
-            <li><a href="#">ePortfolios</li>
-            <li><a href="#">Shared Content</li>
-            <li><a href="#">The Hub</li>
-            <li><a href="#">Qwickly Course Tools</li>
-            <li><a href="#">Global Announcements</li>
-        </ul>
-    </td>
-</table>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-2 list-group wd-kanbas-navigation">
+                <!-- <a href="#">
+                    <img class="NEU-logo" src="../../src/Northeastern-University-Emblem-BlackBG.png" alt="Northeastern University Logo"> 
+                </a> -->
+                <a class="wd-active" href="../Account/AccountNavigation/index.html" aria-hidden="true">
+                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>Account
+                </a>
+                <a href="#">
+                    <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
+                </a>
+                <a href="../Courses/CourseNavigation/index.html" aria-hidden="true">
+                    <i class="fa fa-book wd-active"></i>Courses
+                </a>
+                <a href="#">
+                    <i class="fa fa-calendar" aria-hidden="true"></i>Calendar
+                </a>
+                <a href="#">
+                    <i class="fa fa-envelope-open" aria-hidden="true"></i>Inbox
+                </a>
+                <a href="#">
+                    <i class="fa fa-clock-o" aria-hidden="true"></i>History
+                </a>
+                <a href="#">
+                    <i class="fa fa-youtube-play" aria-hidden="true"></i>Studio
+                </a>
+                <a href="#">
+                    <i class="fa fa-external-link" aria-hidden="true"></i>Commons
+                </a>
+                <a href="#">
+                    <i class="fa fa-question-circle" aria-hidden="true"></i><br/>Help
+                </a>
+            </div>
+        
+            <div class="col-2 list-group wd-course-navigation">
+                <a href="#">Notification</a>
+                <a href="../Profile/index.html">Profile</a>
+                <a href="#">Files</a>
+                <a href="#">Settings</a>
+                <a href="#">ePortfolios</a>
+                <a href="#">Shared Content</a>
+                <a href="#">The Hub</a>
+                <a href="#">Qwickly Course Tools</a>
+                <a href="#">Global Announcements</a>
+            </div>
+        </div>
+    </div>
+</body>
+
