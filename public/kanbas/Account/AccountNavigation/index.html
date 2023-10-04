@@ -1,58 +1,110 @@
-<link rel="stylesheet" href="../../../lib/bootstrap/bootstrap.min.css" />
-<link rel="stylesheet" href="../../../styles.css" />
-<link rel="stylesheet" href="../../../lib/font-awesome/css/font-awesome.css" />
-<link rel="stylesheet" href="../../KanbasNavigation/index.css"/>
-<link rel="stylesheet" href="../../Courses/CourseNavigation/index.css"/>
-<link rel="stylesheet" href="index.css"/>
-
-<body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-2 list-group wd-kanbas-navigation">
-                <!-- <a href="#">
-                    <img class="NEU-logo" src="../../src/Northeastern-University-Emblem-BlackBG.png" alt="Northeastern University Logo"> 
-                </a> -->
-                <a class="wd-active" href="../Account/AccountNavigation/index.html" aria-hidden="true">
-                    <i class="fa fa-user-circle-o" aria-hidden="true"></i>Account
-                </a>
-                <a href="#">
-                    <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
-                </a>
-                <a href="../Courses/CourseNavigation/index.html" aria-hidden="true">
-                    <i class="fa fa-book wd-active"></i>Courses
-                </a>
-                <a href="#">
-                    <i class="fa fa-calendar" aria-hidden="true"></i>Calendar
-                </a>
-                <a href="#">
-                    <i class="fa fa-envelope-open" aria-hidden="true"></i>Inbox
-                </a>
-                <a href="#">
-                    <i class="fa fa-clock-o" aria-hidden="true"></i>History
-                </a>
-                <a href="#">
-                    <i class="fa fa-youtube-play" aria-hidden="true"></i>Studio
-                </a>
-                <a href="#">
-                    <i class="fa fa-external-link" aria-hidden="true"></i>Commons
-                </a>
-                <a href="#">
-                    <i class="fa fa-question-circle" aria-hidden="true"></i><br/>Help
-                </a>
-            </div>
-        
-            <div class="col-2 list-group wd-course-navigation">
-                <a href="#">Notification</a>
-                <a href="../Profile/index.html">Profile</a>
-                <a href="#">Files</a>
-                <a href="#">Settings</a>
-                <a href="#">ePortfolios</a>
-                <a href="#">Shared Content</a>
-                <a href="#">The Hub</a>
-                <a href="#">Qwickly Course Tools</a>
-                <a href="#">Global Announcements</a>
+<html>
+    <head>
+        <link rel="stylesheet" href="../../../lib/bootstrap/bootstrap.min.css" />
+        <link rel="stylesheet" href="../../../styles.css" />
+        <link rel="stylesheet" href="../../../lib/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="../../KanbasNavigation/index.css"/>
+        <link rel="stylesheet" href="../../Courses/CourseNavigation/index.css"/>
+        <link rel="stylesheet" href="index.css"/>
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <div class="list-group wd-kanbas-navigation d-flex align-items-center">
+                        <a href="#">
+                            <img class="img-fluid" src="../../src/NU_RGB_Notched-N_wordmark_RW.png" alt="Northeastern University Logo"> 
+                        </a>
+                        <a class="wd-active" href="../Account/AccountNavigation/index.html" aria-hidden="true">
+                            <i class="fa fa-user-circle-o" aria-hidden="true"></i>Account
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-tachometer" aria-hidden="true"></i>Dashboard
+                        </a>
+                        <a href="../Courses/CourseNavigation/index.html" aria-hidden="true">
+                            <i class="fa fa-book wd-active"></i>Courses
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-calendar" aria-hidden="true"></i>Calendar
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-envelope-open" aria-hidden="true"></i><br/>Inbox
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-clock-o" aria-hidden="true"></i>History
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-youtube-play" aria-hidden="true"></i>Studio
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-external-link" aria-hidden="true"></i>Commons
+                        </a>
+                        <a href="#">
+                            <i class="fa fa-question-circle" aria-hidden="true"></i><br/>Help
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="col-11 test1">
+                    <div class="row-1 wd-flex-row-container align-items-center upper-bar">
+                        <i class="fa fa-bars" aria-hidden="true"></i>
+                        <p class="upper-bar-navigator">Jose Annunziato's Profile</p>
+                    </div>
+                    <div class="row test">
+                        <div class="col-2 full-height lower-body">
+                            <div class="list-group wd-course-navigation">
+                                <a href="#">Notification</a>
+                                <a class="wd-active" href="../Profile/index.html">Profile</a>
+                                <a href="#">Files</a>
+                                <a href="#">Settings</a>
+                                <a href="#">ePortfolios</a>
+                                <a href="#">Shared Content</a>
+                                <a href="#">The Hub</a>
+                                <a href="#">Qwickly Course Tools</a>
+                                <a href="#">Global Announcements</a>
+                            </div>
+                        </div>
+                        <div class="col profile-body">
+                            <div class="row">
+                                <div class="col left-profile-body">
+                                    <div class="row profile-image">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </div>
+                                    <div class="row profile-info">
+                                        <div class="profile-name">
+                                            <h1 id="name">Jose Annunziato</h1>
+                                            <br/>
+                                        </div>
+                                        <div class="profile-contact">
+                                            <h2 class="contact">Contact</h2>
+                                            <p class="contact">No registered services, you can add some on the <a href="#">settings</a> page.</p>
+                                        </div>                                    
+                                        <div class="profile-biography">
+                                            <h2 class="biography">Biography</h2>
+                                            <p class="Biography">Faculty, Software Engineer, AI, Space, and renewables enthusiast.</p>
+                                        </div>
+                                        <div class="profile-links">
+                                            <h2 class="links">Links</h2>
+                                            <a href="https://www.youtube.com/watch?v=9XsRrm-VKj4&t=4467s">YouTube</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 right-profile-body">
+                                    <div class="col edit-profile-button">
+                                        <a role="button" class="btn btn-light" href="../EditProfile/index.html">
+                                            <img class="edit-button-image" src="../../src/pencil2.jpg">
+                                            Edit Profile
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
-    </div>
-</body>
+    </body>
+</html>
+
+
 

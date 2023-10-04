@@ -1,0 +1,17 @@
+.wd-disabled-items .wd-disabled-item {
+    color: grey;
+}
+
+.wd-disabled-items .wd-subtext {
+    color: grey;
+}
+
+.wd-information {
+    margin: 15 0 15 0px;
+    font-size: 20px;
+}
+
+.wd-subtext {
+    margin-left: 15px;
+    font-size: 13px;
+}

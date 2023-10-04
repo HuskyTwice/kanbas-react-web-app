@@ -1,0 +1,9 @@
+.wd-submission-outer-box {
+    border-width: 2px solid grey;
+}
+
+/* sets the border radius of all the form containers */
+.form-group .form {
+    border-radius: 0.375rem;
+}
+ 

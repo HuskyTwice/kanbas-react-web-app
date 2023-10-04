@@ -1,0 +1,59 @@
+.wd-right-body {
+    margin: 0px;
+    padding: 0px;
+}
+
+.wd-kanbas-navigation {
+    /* position: fixed; */
+    height: 100%;
+    width: 85px;
+}
+
+.wd-upper-row {
+    margin: 0 0 20 0px;
+    /* border-bottom: 1px solid #C7CDD1; */
+    width: 100%;
+}
+
+.wd-dashboard {
+    margin: 0 0 0 0px;
+    padding: 0 0 0 0px;
+    width: 100%;
+    font-weight: 300;
+    /* border-bottom: 1px solid #C7CDD1;  */
+}
+
+.wd-published-courses {
+    margin: 0 0 0 0px;
+    padding: 0 0 0 0px;
+    width: 100%;
+    /* border-bottom: 1px solid #C7CDD1;  */
+}
+
+.wd-lower-row-1 {
+    margin: 0 0 0 20px;
+    display: flex;
+    width: 100%;
+}
+
+.wd-lower-row-2 {
+    margin: 0 0 0 20px;
+    display: flex;
+    width: 100%;
+}
+
+.wd-lower-row-1 .col {
+    max-height: 350px;
+    width:270px;
+    margin: 20 10 20 10px;  
+}
+.wd-lower-row-2 .col {
+    max-height: 350px;
+    width:270px;
+    margin: 20 10 20 10px;  
+}
+
+.card {
+    max-height: 320px;
+    width: 270px;
+}

@@ -1,0 +1,21 @@
+/* second upper line buttons styling */
+.wd-module-body .btn {
+    margin: 0 0 0 5px;
+    padding: 7px;
+    height: 40px;
+    min-width: 30px;
+}
+
+.wd-search-row {
+    height: 150px;
+}
+
+.wd-search-row .col {
+    height: 150px;
+    margin-right: 10px;
+}
+
+.scollable-container .th {
+    align-items: middle;
+    text-align: center;
+}   
