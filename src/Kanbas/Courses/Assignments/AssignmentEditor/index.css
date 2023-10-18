@@ -1,0 +1,15 @@
+.wd-lighter-inner-line {
+    color: gray;
+}
+
+.wd-check-mark {
+    font-size: 1.3em;
+    color: green;
+    margin-right: 5px;
+}
+
+.wd-published {
+    margin: 0px;
+    margin-right: 5px;
+    color: green;
+}

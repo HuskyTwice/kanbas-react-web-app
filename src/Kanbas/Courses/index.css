@@ -1,0 +1,27 @@
+.wd-container {
+    padding: 20px;
+}
+
+.wd-hamburger-icon {
+    font-size: 32px;;
+    color: red;
+}
+
+.wd-course-name {
+    margin: 0 0 0 25px;
+    color: red;
+}
+
+.wd-arrow {
+    margin: 0 0 0 10px;
+    color: lightgray;
+}
+
+.wd-current-course-directory {
+    color: black;
+    margin: 0 0 0 10px;
+}
+
+.flex-grow {
+    flex: 1;
+}

@@ -1,0 +1,41 @@
+.wd-status-board {
+    display: flex;
+    margin-left: 40px;
+    flex-direction: column;
+    width: 300px;
+}
+
+.wd-status-board .wd-btn-container {
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.wd-close-button {
+    background: transparent;
+    border: none;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+    background-image: none;
+}
+
+.wd-hw {
+    max-width: 250px;
+}
+
+.wd-hw-order-icon {
+    color: red;
+    font-size: 25px;
+}
+
+.wd-hw-title {
+    color: red;
+}
+
+.wd-hw-score-due {
+    color: grey;
+}
+
+.wd-close-button.wd-close-button-icon {
+    color: grey;
+}

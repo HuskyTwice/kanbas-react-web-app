@@ -1,0 +1,57 @@
+.wd-kanbas-navigation {
+    height: 100vh;
+    background-color: black; /* issue here */
+    flex: 0 1 auto;
+}
+
+.wd-kanbas-navigation .list-group-item {
+    background-color: black;
+    border: none;
+    border-radius: 0;
+    height: 70px;
+}
+
+.list-group-item {
+    width: 90px;
+    /* height: 100%; */
+    /* padding: 10px; */
+    /* color: white; */
+}
+
+.wd-kanbas-navigation a.active {
+    background-color: white;
+}
+
+.wd-kanbas-navigation a.active .wd-itemText {
+    color: red;
+}
+
+.wd-kanbas-navigation a.active .wd-user-icon {
+    color: lightgrey;
+}
+
+.wd-itemIcon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: red;
+    font-size: 2em;
+}
+
+.wd-itemText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    color: white;
+}
+
+.wd-user-icon {
+    color: white;
+}
+
+.wd-question-icon {
+    color: red;
+}
+
