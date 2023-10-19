@@ -1,5 +1,5 @@
 import db from "../../Kanbas/Database";
-import {Navigate, Route, Routes, useParams, useLocation} from "react-router-dom";
+import {Navigate, Route, Routes, useParams} from "react-router-dom";
 import './index.css'
 import CourseNavigation from "./CourseNavigation";
 import Breadcrumbs from "./Breadcrumbs";

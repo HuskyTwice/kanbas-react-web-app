@@ -10,7 +10,7 @@ function Assignments() {
     const {courseId} = useParams();
     const assignments = db.assignments;
     const courseAssignments = assignments.filter(
-        (assignment) => assignment.course == courseId);
+        (assignment) => assignment.course === courseId);
 
     return (
         <div className="col">

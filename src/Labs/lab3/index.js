@@ -1,4 +1,4 @@
-import Assignment3 from "../a3";
+// import Assignment3 from "../a3";
 import {Link} from "react-router-dom";
 // import Nav from "../../Nav";
 function Labs() {
