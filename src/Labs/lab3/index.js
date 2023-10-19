@@ -4,11 +4,9 @@ import Nav from "../../Nav";
 function Labs() {
     return (
         <div>
-            <Link to="/hello">Hello</Link> |
-            <Link to="/Labs/a3">A3</Link> |
-            <Link to="/Kanbas">Kanbas</Link>
-            <Assignment3/>
-            {/* <Nav/> */}
+            <Link to="/Labs/a3">Lab3</Link> |
+            <Link to="/Kanbas">Kanbas-A3</Link>
+            {/* <Assignment3/> */}
         </div>
     );
 }

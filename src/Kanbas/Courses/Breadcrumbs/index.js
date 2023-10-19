@@ -1,5 +1,6 @@
 import {useLocation} from "react-router-dom";
 import {RxHamburgerMenu} from "react-icons/rx";
+import "../../../lib/bootstrap/bootstrap.min.css";
 
 const Breadcrumbs = ( course ) => {
     const {pathname} = useLocation();
@@ -15,6 +16,12 @@ const Breadcrumbs = ( course ) => {
             <h3 className="wd-arrow"> {breadcrumbChar} </h3>
             <h2 className="wd-current-course-directory"> {path} </h2>
         </nav>
+        // <nav aria-label="breadcrumb">
+        //     <ol clasNames="breadcrumb align-items-center m-0">
+        //         <li className="breadcrumb-item"><a href="#" style={{color: 'red', fontSize: '20px', textDecoration: 'none'}}>{course.items.number} {course.items.name}</a></li>
+        //         <li className="breadcrumb-item active" aria-current="page" style={{fontSize: '20px'}}>{path}</li>
+        //     </ol>
+        // </nav>
     );
 };
 

@@ -1,0 +1,22 @@
+.wd-table-responsive {
+    border: 1px solid lightgray;
+}
+
+.wd-gradebook-btn {
+    border: 0px;
+    color: red;
+    padding-left: 0px;
+}
+
+.wd-export {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.wd-filter-btn {
+    margin-bottom: 15px;
+}
+
+.wd-table-responsive .wd-student-name {
+    color: red;
+}

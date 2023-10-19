@@ -31,10 +31,14 @@ function ModuleList() {
             <ul className="list-group">
                 {
                     modules.filter((module) => module.course === courseId).map((module, index) => (
-                        <li key={index} className="list-group-item wd-module-item">
-                            <h3>{module.name}</h3>
-                            <p>{module.description}</p>
-                        </li>
+                        /* gotta make a div and put another list-group inside here */
+                        <div className="m-5">
+                            <li key={index} className="list-group-item wd-module-item">
+                                
+                                <h3>{module.name}</h3>
+                                <p>{module.description}</p>
+                            </li>
+                        </div>
                     ))
                 }
             </ul>

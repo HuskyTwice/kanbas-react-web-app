@@ -15,10 +15,6 @@ function Kanbas() {
                     <Route path="Dashboard" element={<Dashboard/>} />
                     <Route path="Courses/:courseId/*" element={<Courses/>} />
                 </Routes>
-                {/* <h1>Account</h1>
-                <h1>Dashboard</h1>
-                <h1>Courses</h1> */}
-                
             </div>
         </div>
     );
