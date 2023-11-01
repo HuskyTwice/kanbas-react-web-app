@@ -8,6 +8,10 @@
     width: 270px;
 }
 
+.wd-left-align {
+    text-align: left;
+}
+
 .wd-btn {
     padding: 0px;
 }
@@ -29,6 +33,19 @@
 }
 
 .wd-course-edit-icon {
-    font-size: 1.2em;
     color: gray;
+    font-size: 2em;
+}
+
+.wd-edit-btn {
+    margin-right: 5px;
+}
+
+.wd-new-course-fields .form-control {
+    width: 250px;
+    margin-right: 20px;
+}
+
+.wd-add-btn {
+    margin-right: 5px;
 }

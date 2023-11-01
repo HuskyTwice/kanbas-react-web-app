@@ -1,13 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import {useParams} from "react-router-dom";
 import db from "../../Database";
 import "./index.css";
 import {BiDotsVerticalRounded} from "react-icons/bi";
 import {AiFillCheckCircle} from "react-icons/ai";
+import {useSelector, useDispatch} from "react-redux";
+import {addModule, deleteModule, updateModule, setModule} from "./modulesReducer";
 
 function ModuleList() {
     const {courseId} = useParams();
-    const modules = db.modules;
+    const modules = useSelector((state) => state.modulesReducer.modules);
+    const module = useSelector((state) => state.modulesReducer.module);
+    const dispatch = useDispatch();
 
     return (
         <div className="col">
@@ -28,15 +32,36 @@ function ModuleList() {
                 <button type="button" class="btn btn-light"><BiDotsVerticalRounded/></button>
             </div>
             <hr />
+
             <ul className="list-group">
+                <div className="m-5">
+                    <li className="list-group-item wd-module-item">
+                        <div className="row">
+                            <div className="col wd-new-module-fields">
+                                <input className="row wd-new-module-item" value={module.name}
+                                    onChange={(e) => dispatch(setModule({...module, name: e.target.value}))} />
+                                <textarea className="row wd-new-module-item" value={module.description}
+                                    onChange={(e) => dispatch(setModule({...module, description: e.target.value}))} />
+                            </div>
+                            <div className="col-3">
+                                <button onClick={() => dispatch(updateModule(module))} className="btn btn-primary">Update</button>
+                                <button onClick={() => dispatch(addModule({...module, course: courseId}))} className="btn btn-success">Add</button>
+                            </div>
+                        </div>
+                    </li>
+                </div>
                 {
                     modules.filter((module) => module.course === courseId).map((module, index) => (
                         /* gotta make a div and put another list-group inside here */
                         <div className="m-5">
                             <li key={index} className="list-group-item wd-module-item">
-                                
-                                <h3>{module.name}</h3>
+                                <div className="d-flex">
+                                    <h3>{module.name}</h3>
+                                    <button onClick={() => dispatch(deleteModule(module._id))} className="btn btn-danger ms-auto">Delete</button>
+                                    <button onClick={(event) => dispatch(setModule(module))} className="btn btn-success">Edit</button>
+                                </div>
                                 <p>{module.description}</p>
+                                <p>{module._id}</p>
                             </li>
                         </div>
                     ))

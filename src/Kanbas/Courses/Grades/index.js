@@ -12,7 +12,7 @@ function Grades() {
 
     return (
         <div>
-            <div className="d-flex m-2">
+            <div className="d-flex m-2"> /* 
                 <div class="dropdown">
                     <button class="btn btn-light dropdown-toggle wd-gradebook-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="fa fa-sign-out" aria-hidden="true"></i>
@@ -30,8 +30,8 @@ function Grades() {
                             <BiExport/> Export
                         </button>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">export option 1</a></li>
-                            <li><a class="dropdown-item" href="#">export option 2</a></li>
+                            {/* <li><a class="dropdown-item" href="#">export option 1</a></li> */}
+                            {/* <li><a class="dropdown-item" href="#">export option 2</a></li> */}
                         </ul>
                     </div>
                     <button type="button" class="btn btn-light"><BsFillGearFill/></button>
