@@ -5,31 +5,7 @@ import './index.css';
 import {PiNotePencilDuotone} from "react-icons/pi";
 import {React, useState} from "react";
 
-function Dashboard() {
-    const [courses, setCourses] = useState(db.Courses);
-    // course state.
-    const [course, setCourse] = useState({
-        name: "New Course", number: "New Number", startDate: "2023-09-10", endDate: "2023-12-15"
-    });
-    const addNewCourse = () => {
-        setCourses([...courses, 
-                    {...course, _id: new Date().getTime()}]);
-    };
-    const deleteCourse = (courseId) => {
-        setCourses(courses.filter((course) => course._id !== courseId));
-    };
-    const updateCourse = () => {
-        console.log(course._id);
-        setCourses(
-            courses.map((c) => {
-                if (c._id === course.number) {
-                    return course;
-                } else {
-                    return c;
-                }
-            })
-        );
-    };
+function Dashboard({courses, course, setCourse, addNewCourse, deleteCourse, updateCourse}) {
 
     return (
         <div className="px-4 py-3">

@@ -58,7 +58,7 @@ function ModuleList() {
                                 <div className="d-flex">
                                     <h3>{module.name}</h3>
                                     <button onClick={() => dispatch(deleteModule(module._id))} className="btn btn-danger ms-auto">Delete</button>
-                                    <button onClick={(event) => dispatch(setModule(module))} className="btn btn-success">Edit</button>
+                                    <button onClick={() => dispatch(setModule(module))} className="btn btn-success">Edit</button>
                                 </div>
                                 <p>{module.description}</p>
                                 <p>{module._id}</p>

@@ -1,16 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import {Link, useParams} from "react-router-dom";
 import db from "../../Database";
 import {BiDotsVerticalRounded} from "react-icons/bi";
 import {AiOutlinePlus, AiFillCheckCircle} from "react-icons/ai";
 import {FiEdit} from "react-icons/fi";
 import "./index.css";
+import {useSelector, useDispatch} from "react-redux";
+import {addAssignment, deleteAssignment, updateAssignment, selectAssignment} from "./assignmentsReducer";
+import DeleteModal from "./DeleteModal";
 
 function Assignments() {
     const {courseId} = useParams();
-    const assignments = db.assignments;
+    const assignments = useSelector((state) => state.assignmentsReducer.assignments);
+    // const assignment = useSelector((state) => state.assignmentsReducer.assignment);
     const courseAssignments = assignments.filter(
         (assignment) => assignment.course === courseId);
+    const dispatch = useDispatch();
+
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const openPopup = () => setIsPopupOpen(true);
+    const closePopup = () => setIsPopupOpen(false);
+    const deleteCB = () => alert('delete')
 
     return (
         <div className="col">
@@ -20,7 +30,10 @@ function Assignments() {
                 </div>
                 <div className="d-flex justify-content-end">
                     <button type="button" class="btn btn-light h-20">+ Group</button>
-                    <button type="button" class="btn btn-danger">+ Assignment</button>
+                    <Link to="./AssignmentEditor">
+                        <button type="button" class="btn btn-danger" >+ Assignment</button>
+                    </Link>
+                    
                     <button type="button" class="btn btn-light"><BiDotsVerticalRounded/></button>
                 </div> 
             </div>
@@ -34,15 +47,33 @@ function Assignments() {
                 </li>
                 {
                     courseAssignments.map((assignment) => (
-                        <Link 
-                            key={assignment._id}
-                            to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
-                            className="list-group-itm d-flex align-items-center wd-assignment-item">
-                                <FiEdit className="wd-edit-icon"/>
-                                <h5 className="m-0">{assignment.title}</h5>
-                                <AiFillCheckCircle className="ms-auto wd-assignment-check-icon"/>
-                                <BiDotsVerticalRounded className="wd-assignment-threedots-icon"/>
-                        </Link>
+                        <div className="d-flex align-items-center">
+                            <div className="d-flex wd-assignment-item">
+                                <Link 
+                                    key={assignment._id}
+                                    to={`/Kanbas/Courses/${courseId}/Assignments/${assignment._id}`}
+                                    className="list-group-itm d-flex align-items-center wd-assignment-item"
+                                    onClick={() => dispatch(selectAssignment(assignment))}>
+                                    <FiEdit className="wd-edit-icon"/>
+                                    <h5 className="m-0">{assignment.title}</h5>
+                                    <AiFillCheckCircle className="ms-auto wd-assignment-check-icon"/>
+                                    <BiDotsVerticalRounded className="wd-assignment-threedots-icon"/>
+                                    <div>
+                                        {assignment._id}
+                                    </div>
+                                </Link>
+                                
+                            </div>
+                            <div className="ms-auto">
+                                <button className="btn btn-danger" onClick={openPopup}>Delete</button>
+                                <DeleteModal deleteCB={() => {
+                                    console.log(assignment._id)
+                                    dispatch(deleteAssignment(assignment._id))
+                                    }} isOpen={isPopupOpen} onClose={closePopup}
+                                    assignment={assignment}
+                                    assignmentId={assignment._id}/>
+                            </div>
+                        </div>
                     ))
                 }
             </ul>
