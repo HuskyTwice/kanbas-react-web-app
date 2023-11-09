@@ -5,7 +5,7 @@ import './index.css';
 import {PiNotePencilDuotone} from "react-icons/pi";
 import {React, useState} from "react";
 
-function Dashboard({courses, course, setCourse, addNewCourse, deleteCourse, updateCourse}) {
+function Dashboard({courses, course, setCourse, addCourse, deleteCourse, updateCourse}) {
 
     return (
         <div className="px-4 py-3">
@@ -24,8 +24,8 @@ function Dashboard({courses, course, setCourse, addNewCourse, deleteCourse, upda
                         onChange={(e) => setCourse({...course, startDate: e.target.value})}/>
                     <input value={course.endDate} className="form-control" type="date"
                         onChange={(e) => setCourse({...course, endDate: e.target.value})}/>
-                    <button onClick={addNewCourse} className="btn btn-success wd-add-btn">Add</button>
-                    <button onClick={updateCourse} className="btn btn-primary wd-update-btn">Update</button>
+                    <button onClick={addCourse} className="btn btn-success wd-add-btn">Add</button>
+                    <button onClick={(e) => {e.preventDefault(); updateCourse(course);}} className="btn btn-primary wd-update-btn">Update</button>
                 </div>
                 <div className="d-flex wd-courses">
                     {courses.map((course, index) => (
@@ -41,7 +41,7 @@ function Dashboard({courses, course, setCourse, addNewCourse, deleteCourse, upda
                                         <button className="btn btn-warning ms-auto wd-edit-btn" onClick={(e) =>
                                             {e.preventDefault(); setCourse(course);}}>Edit</button>
                                         <button className="btn btn-danger wd-delete-btn" onClick={(e) => 
-                                            {e.preventDefault(); deleteCourse(course._id);}}>Delete</button>
+                                            {e.preventDefault(); deleteCourse(course);}}>Delete</button>
                                     </div>
                                 </div>
                             </Link>
