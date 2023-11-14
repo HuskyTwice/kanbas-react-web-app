@@ -15,12 +15,10 @@ function Kanbas() {
     const [course, setCourse] = useState({
         name: "New Course", number: "New Number", startDate: "2023-09-10", endDate: "2023-12-15"
     });
-
     const findAllCourses = async () => {
         const response = await axios.get(URL);
         setCourses(response.data);
     };
-
     const addCourse = async () => {
         const response = await axios.post(URL, course);
         setCourses([response.data, ...courses,]);
@@ -30,17 +28,13 @@ function Kanbas() {
         const response = await axios.delete(`${URL}/${course._id}`);
         setCourses(courses.filter((c) => c._id !== course._id));
     };
+    // update is not applied to the UI immediately.
     const updateCourse = async (course) => {
         const response = await axios.put(
             `${URL}/${course._id}`, course
         );
-        setCourses(courses.map((c) => {
-            if (c._id === course._id) {
-                return response.data;
-            }
-            return c;
-        }));
-        setCourse({ name: "New Course", number: "New Number", startDate: "2023-09-10", endDate: "2023-12-15" });
+        setCourses(courses.map((c) => (c._id === course._id ? course : c ))); 
+        // setCourse({ name: "New Course", number: "New Number", startDate: "2023-09-10", endDate: "2023-12-15" });
     };
 
     useEffect(() => {
