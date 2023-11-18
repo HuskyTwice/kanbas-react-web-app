@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
 import db from "../../Database";
 import {BiDotsVerticalRounded} from "react-icons/bi";
@@ -6,21 +6,46 @@ import {AiOutlinePlus, AiFillCheckCircle} from "react-icons/ai";
 import {FiEdit} from "react-icons/fi";
 import "./index.css";
 import {useSelector, useDispatch} from "react-redux";
-import {addAssignment, deleteAssignment, updateAssignment, selectAssignment} from "./assignmentsReducer";
+import {addAssignment, deleteAssignment, updateAssignment, selectAssignment, setAssignments} from "./assignmentsReducer";
 import DeleteModal from "./DeleteModal";
+import * as client from "./client";
 
 function Assignments() {
     const {courseId} = useParams();
     const assignments = useSelector((state) => state.assignmentsReducer.assignments);
-    // const assignment = useSelector((state) => state.assignmentsReducer.assignment);
+    const assignment = useSelector((state) => state.assignmentsReducer.assignment);
     const courseAssignments = assignments.filter(
         (assignment) => assignment.course === courseId);
     const dispatch = useDispatch();
-
+    const [assignmentModalStates, setAssignmentModalStates] = useState({});
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    const openPopup = () => setIsPopupOpen(true);
-    const closePopup = () => setIsPopupOpen(false);
-    const deleteCB = () => alert('delete')
+    // const openPopup = (assignmentId) => setIsPopupOpen(true);
+    const openPopup = (assignmentId) => {
+        setAssignmentModalStates((prevStates) => ({
+            ...prevStates,
+            [assignmentId]: true,
+        }));
+    };
+    // const closePopup = (assignmentId) => setIsPopupOpen(false);
+    const closePopup = (assignmentId) => {
+        setAssignmentModalStates((prevStates) => ({
+            ...prevStates,
+            [assignmentId]: false,
+        }));
+    };
+    const deleteCB = () => alert('delete');
+
+    const handleDeleteAssignment = (assignmentId) => {
+        client.deleteAssignment(assignmentId).then(
+            (assignment) => {dispatch(deleteAssignment(assignmentId));}
+        );
+    };
+
+    useEffect(() => {
+        client.findAssignmentsForCourse(courseId).then(
+            (assignments) => dispatch(setAssignments(assignments))
+        );
+    }, [courseId]);
 
     return (
         <div className="col">
@@ -65,11 +90,20 @@ function Assignments() {
                                 
                             </div>
                             <div className="ms-auto">
-                                <button className="btn btn-danger" onClick={openPopup}>Delete</button>
-                                <DeleteModal deleteCB={() => {
-                                    console.log(assignment._id)
-                                    dispatch(deleteAssignment(assignment._id))
-                                    }} isOpen={isPopupOpen} onClose={closePopup}
+                                <button className="btn btn-danger"
+                                    onClick={() => openPopup(assignment._id)}>
+                                    Delete
+                                </button>
+                                <DeleteModal 
+                                    deleteCB={() => {
+                                        console.log(assignment._id)
+                                    // dispatch(deleteAssignment(assignment._id))
+                                        handleDeleteAssignment(assignment._id)
+                                    }} 
+                                    // isOpen={isPopupOpen}
+                                    // onClose={closePopup}
+                                    isOpen={assignmentModalStates[assignment._id] || false}
+                                    onClose={() => closePopup(assignment._id)}
                                     assignment={assignment}
                                     assignmentId={assignment._id}/>
                             </div>

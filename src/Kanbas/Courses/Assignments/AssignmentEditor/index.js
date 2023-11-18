@@ -1,33 +1,46 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import {useNavigate, useParams, Link} from "react-router-dom";
 import db from "../../../Database";
 import {AiFillCheckCircle} from "react-icons/ai";
 import {BiDotsVerticalRounded} from "react-icons/bi";
 import "./index.css";
 import {useSelector, useDispatch} from "react-redux";
-import {addAssignment, deleteAssignment, updateAssignment, selectAssignment} from "../assignmentsReducer";
+import {addAssignment, deleteAssignment, updateAssignment, selectAssignment, setAssignments} from "../assignmentsReducer";
+import * as client from "../client";
 
 function AssignmentEditor() {
     const {assignmentId} = useParams();
     const {courseId} = useParams();
-    console.log(assignmentId);
-    // const assignment = db.assignments.find(
-    //     (assignment) => assignment._id === assignmentId);
     const assignment = useSelector((state) => state.assignmentsReducer.assignment); // brings the temp assignment state
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    // This module controls either createAssignment or addAssignment.
     const handleSave = () => {
         console.log(assignmentId);
         console.log("test");
         if (assignmentId === "AssignmentEditor") {
-            console.log("Add");
-            dispatch(addAssignment({...assignment, course: courseId}));
+            console.log("Add New Assignment")
+            client.createAssignment(courseId, assignment).then(
+                (assignment) => {
+                    dispatch(addAssignment(assignment));
+                }
+            );
         } else {
-            console.log("Update")
-            dispatch(updateAssignment(assignment));
+            console.log("Update Assignment")
+            client.updateAssignment(assignmentId).then(
+                (assignment) => {
+                    dispatch(updateAssignment(assignmentId));
+                }
+            );
         }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
+
+    useEffect(() => {
+        client.findAssignmentsForCourse(courseId).then(
+            (assignments) => dispatch(setAssignments(assignments))
+        );
+    }, [courseId]);
 
     return (
         <div>
@@ -50,7 +63,7 @@ function AssignmentEditor() {
                 <h6>Points</h6>
                 <input type="number" className="form-control wd-assignment-points"
                     value={assignment.points} onChange={(e) => dispatch(selectAssignment({
-                        ...assignment, title: e.target.points}))
+                        ...assignment, points: e.target.points}))
                     }/>
             </div>
             <div className="d-flex">
@@ -88,7 +101,7 @@ function AssignmentEditor() {
                     Cancel
                 </Link>
                 <Link to={`/Kanbas/Courses/${courseId}/Assignments`} 
-                    onClick={handleSave} className="btn btn-danger me-2">
+                    onClick={() => handleSave()} className="btn btn-danger me-2">
                     Save
                 </Link>
             </div>

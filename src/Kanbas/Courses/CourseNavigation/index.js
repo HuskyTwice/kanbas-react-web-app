@@ -8,7 +8,7 @@ function CourseNavigation() {
     const {courseId} = useParams();
     const {pathname} = useLocation();
     let pathArray = pathname.split("/");
-    console.log(pathArray);
+    // console.log(pathArray);
     let path = pathArray[pathArray.length - 1];
     path = path.replace("%20", " ");
 
