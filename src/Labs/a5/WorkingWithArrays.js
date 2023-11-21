@@ -2,8 +2,10 @@ import React, {useState, useEffect} from "react";
 import axios from "axios";
 
 function WorkingWithArrays() {
+    const BASE_URL = "http://localhost:4000";
+    // const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
     const [errorMessage, setErrorMessage] = useState(null);
-    const API = "http://localhost:4000/a5/todos";
+    const API = `${BASE_URL}/a5/todos`;
     const [todo, setTodo] = useState({
         id: 1,
         title: "NodeJS Assignment",

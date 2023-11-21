@@ -1,7 +1,9 @@
 import axios from "axios";
 
-const COURSES_URL = "http://localhost:4000/api/courses";
-const MODULES_URL = "http://localhost:4000/api/modules";
+const BASE_URL = "http://localhost:4000";
+// const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
+const COURSES_URL = `${BASE_URL}/api/courses`;
+const MODULES_URL = `${BASE_URL}/api/modules`;
 
 export const updateModule = async (module) => {
     const response = await axios.put(`${MODULES_URL}/${module._id}`, module);

@@ -1,37 +1,39 @@
 import React, {useState, useEffect} from "react";
 import {useNavigate, useParams, Link} from "react-router-dom";
-import db from "../../../Database";
+// import db from "../../../Database";
 import {AiFillCheckCircle} from "react-icons/ai";
 import {BiDotsVerticalRounded} from "react-icons/bi";
 import "./index.css";
 import {useSelector, useDispatch} from "react-redux";
-import {addAssignment, deleteAssignment, updateAssignment, selectAssignment, setAssignments} from "../assignmentsReducer";
+import {addAssignment, updateAssignment, selectAssignment, setAssignments} from "../assignmentsReducer";
 import * as client from "../client";
 
 function AssignmentEditor() {
     const {assignmentId} = useParams();
     const {courseId} = useParams();
-    const assignment = useSelector((state) => state.assignmentsReducer.assignment); // brings the temp assignment state
+    const assignment = useSelector((state) => state.assignmentsReducer.assignment);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+
     // This module controls either createAssignment or addAssignment.
-    const handleSave = () => {
+    const handleSave = async () => {
         console.log(assignmentId);
-        console.log("test");
         if (assignmentId === "AssignmentEditor") {
             console.log("Add New Assignment")
-            client.createAssignment(courseId, assignment).then(
-                (assignment) => {
-                    dispatch(addAssignment(assignment));
-                }
-            );
+            try {
+                const newAssignment = await client.createAssignment(courseId, assignment);
+                dispatch(addAssignment(newAssignment));
+            } catch (error) {
+                console.error("Error creating assignment:", error);
+            } 
         } else {
             console.log("Update Assignment")
-            client.updateAssignment(assignmentId).then(
-                (assignment) => {
-                    dispatch(updateAssignment(assignmentId));
-                }
-            );
+            try {
+                const updatedAssignment = await client.updateAssignment(assignment);
+                dispatch(updateAssignment(updatedAssignment));
+            } catch (error) {
+                console.error("Error updating assignment:", error);
+            } 
         }
         navigate(`/Kanbas/Courses/${courseId}/Assignments`);
     };
@@ -40,7 +42,7 @@ function AssignmentEditor() {
         client.findAssignmentsForCourse(courseId).then(
             (assignments) => dispatch(setAssignments(assignments))
         );
-    }, [courseId]);
+    }, [assignment, assignmentId]);
 
     return (
         <div>
@@ -101,7 +103,7 @@ function AssignmentEditor() {
                     Cancel
                 </Link>
                 <Link to={`/Kanbas/Courses/${courseId}/Assignments`} 
-                    onClick={() => handleSave()} className="btn btn-danger me-2">
+                    onClick={handleSave} className="btn btn-danger me-2">
                     Save
                 </Link>
             </div>

@@ -1,4 +1,4 @@
-import db from "../../Kanbas/Database";
+// import db from "../../Kanbas/Database";
 import {Navigate, Route, Routes, useParams} from "react-router-dom";
 import './index.css'
 import CourseNavigation from "./CourseNavigation";
@@ -14,7 +14,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Courses() {
-    const URL = "http://localhost:4000/api/courses";
+    const BASE_URL = "http://localhost:4000";
+    // const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
+    const URL = `${BASE_URL}/api/courses`;
     const { courseId } = useParams();
     const [ course, setCourse] = useState({});
     const findCourseById = async (courseId) => {
@@ -24,7 +26,6 @@ function Courses() {
 
     useEffect(() => {
         findCourseById(courseId);
-
     }, [courseId]);
     
 

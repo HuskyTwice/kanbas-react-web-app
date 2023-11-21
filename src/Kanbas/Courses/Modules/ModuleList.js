@@ -7,7 +7,6 @@ import {AiFillCheckCircle} from "react-icons/ai";
 import {useSelector, useDispatch} from "react-redux";
 import {addModule, deleteModule, updateModule, setModule, setModules} from "./modulesReducer";
 import * as client from "./client";
-// import {findModulesForCourse, createModule} from "./client";
 
 function ModuleList() {
     const {courseId} = useParams();

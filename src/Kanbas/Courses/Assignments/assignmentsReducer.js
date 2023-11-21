@@ -31,25 +31,23 @@ const assignmentsSlice = createSlice({
             );
         },
         updateAssignment: (state, action) => {
-            // return {
-            //     ...state,
-            //     assignments: state.assignments.map((assignment) => {
-            //         if (assignment._id === action.payload._id) {
-            //             return action.payload;
-            //         } else {
-            //             return assignment;
-            //         }
-            //     })
-            // }
-
-            state.assignments = state.assignments.map((assignment) => {
-                if (assignment._id === action.payload._id) {
-                    return action.payload;
-                } else {
-                    return assignment;
-                }
-                
-            });
+            return {
+                ...state,
+                assignments: state.assignments.map((assignment) => {
+                    if (assignment._id === action.payload._id) {
+                        return action.payload;
+                    } else {
+                        return assignment;
+                    }
+                })
+            }
+            // state.assignments = state.assignments.map((assignment) => {
+            //     if (assignment._id === action.payload._id) {
+            //         return action.payload;
+            //     } else {
+            //         return assignment;
+            //     }
+            // });
         },
         selectAssignment: (state, action) => {
             state.assignment = action.payload;

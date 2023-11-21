@@ -6,7 +6,7 @@ import {AiOutlinePlus, AiFillCheckCircle} from "react-icons/ai";
 import {FiEdit} from "react-icons/fi";
 import "./index.css";
 import {useSelector, useDispatch} from "react-redux";
-import {addAssignment, deleteAssignment, updateAssignment, selectAssignment, setAssignments} from "./assignmentsReducer";
+import {deleteAssignment, selectAssignment, setAssignments} from "./assignmentsReducer";
 import DeleteModal from "./DeleteModal";
 import * as client from "./client";
 
@@ -19,22 +19,18 @@ function Assignments() {
     const dispatch = useDispatch();
     const [assignmentModalStates, setAssignmentModalStates] = useState({});
     const [isPopupOpen, setIsPopupOpen] = useState(false);
-    // const openPopup = (assignmentId) => setIsPopupOpen(true);
     const openPopup = (assignmentId) => {
         setAssignmentModalStates((prevStates) => ({
             ...prevStates,
             [assignmentId]: true,
         }));
     };
-    // const closePopup = (assignmentId) => setIsPopupOpen(false);
     const closePopup = (assignmentId) => {
         setAssignmentModalStates((prevStates) => ({
             ...prevStates,
             [assignmentId]: false,
         }));
     };
-    const deleteCB = () => alert('delete');
-
     const handleDeleteAssignment = (assignmentId) => {
         client.deleteAssignment(assignmentId).then(
             (assignment) => {dispatch(deleteAssignment(assignmentId));}
@@ -45,7 +41,7 @@ function Assignments() {
         client.findAssignmentsForCourse(courseId).then(
             (assignments) => dispatch(setAssignments(assignments))
         );
-    }, [courseId]);
+    }, [assignment]); // changing it from 'courseId' to 'assignment' applies the assignments state change immediately without refresh.
 
     return (
         <div className="col">
@@ -87,7 +83,6 @@ function Assignments() {
                                         {assignment._id}
                                     </div>
                                 </Link>
-                                
                             </div>
                             <div className="ms-auto">
                                 <button className="btn btn-danger"
@@ -97,11 +92,8 @@ function Assignments() {
                                 <DeleteModal 
                                     deleteCB={() => {
                                         console.log(assignment._id)
-                                    // dispatch(deleteAssignment(assignment._id))
                                         handleDeleteAssignment(assignment._id)
                                     }} 
-                                    // isOpen={isPopupOpen}
-                                    // onClose={closePopup}
                                     isOpen={assignmentModalStates[assignment._id] || false}
                                     onClose={() => closePopup(assignment._id)}
                                     assignment={assignment}
