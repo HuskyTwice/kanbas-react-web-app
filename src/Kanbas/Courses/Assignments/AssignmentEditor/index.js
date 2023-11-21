@@ -42,7 +42,7 @@ function AssignmentEditor() {
         client.findAssignmentsForCourse(courseId).then(
             (assignments) => dispatch(setAssignments(assignments))
         );
-    }, [assignment, assignmentId]);
+    }, [courseId, assignment, assignmentId]);
 
     return (
         <div>

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import {Link, useParams} from "react-router-dom";
-import db from "../../Database";
+// import db from "../../Database";
 import {BiDotsVerticalRounded} from "react-icons/bi";
 import {AiOutlinePlus, AiFillCheckCircle} from "react-icons/ai";
 import {FiEdit} from "react-icons/fi";
@@ -18,7 +18,6 @@ function Assignments() {
         (assignment) => assignment.course === courseId);
     const dispatch = useDispatch();
     const [assignmentModalStates, setAssignmentModalStates] = useState({});
-    const [isPopupOpen, setIsPopupOpen] = useState(false);
     const openPopup = (assignmentId) => {
         setAssignmentModalStates((prevStates) => ({
             ...prevStates,
@@ -41,7 +40,7 @@ function Assignments() {
         client.findAssignmentsForCourse(courseId).then(
             (assignments) => dispatch(setAssignments(assignments))
         );
-    }, [assignment]); // changing it from 'courseId' to 'assignment' applies the assignments state change immediately without refresh.
+    }, [courseId]); // changing it from 'courseId' to 'assignment' applies the assignments state change immediately without refresh.
 
     return (
         <div className="col">
