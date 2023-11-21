@@ -10,8 +10,8 @@ import {Provider} from "react-redux";
 import axios from "axios";
 
 function Kanbas() {
-    const BASE_URL = "http://localhost:4000";
-    // const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
+    // const BASE_URL = "http://localhost:4000";
+    const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
     const URL = `${BASE_URL}/api/courses`;
     const [courses, setCourses] = useState([]);
     const [course, setCourse] = useState({

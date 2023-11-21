@@ -14,8 +14,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 
 function Courses() {
-    const BASE_URL = "http://localhost:4000";
-    // const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
+    // const BASE_URL = "http://localhost:4000";
+    const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
     const URL = `${BASE_URL}/api/courses`;
     const { courseId } = useParams();
     const [ course, setCourse] = useState({});

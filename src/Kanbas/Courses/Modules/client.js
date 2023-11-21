@@ -1,7 +1,7 @@
 import axios from "axios";
 
-const BASE_URL = "http://localhost:4000";
-// const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
+// const BASE_URL = "http://localhost:4000";
+const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
 const COURSES_URL = `${BASE_URL}/api/courses`;
 const MODULES_URL = `${BASE_URL}/api/modules`;
 

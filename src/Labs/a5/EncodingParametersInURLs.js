@@ -2,8 +2,8 @@ import React, {useEffect, useState} from "react";
 import axios from "axios";
 
 function EncodingParametersInURLs() {
-    const BASE_URL = "http://localhost:4000";
-    // const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
+    // const BASE_URL = "http://localhost:4000";
+    const BASE_URL = "https://kanbas-node-server-app-mitf.onrender.com";
     const [a, setA] = useState(34);
     const [b, setB] = useState(23);
     const [welcome, setWelcome] = useState("");
