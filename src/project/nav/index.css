@@ -1,0 +1,27 @@
+.wd-navigation {
+    background-color: white; /* issue here */
+    /* flex: 0 1 auto; */
+}
+
+.wd-navigation .list-group-item {
+    background-color: white;
+    border: 1 solid;
+    border-radius: 0;
+}
+
+.wd-navigation a.active {
+    background-color: #0d6efd;
+}
+
+.wd-navigation a.active .wd-itemText {
+    color: white;
+}
+
+.wd-itemText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+}
+
+
