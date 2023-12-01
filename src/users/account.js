@@ -33,10 +33,10 @@ function Account() {
     return (
         <div className="w-50">
             <h1>Account</h1>
-            {account} This is account
+            {/* {account} This is account */}
             {account && (
                 <div>
-                    Id: <input value={account._id}/><br/>
+                    Username: <input value={account.username}/><br/>
                     Password: <input value={account.password} onChange={(e) => setAccount({...account, password: e.target.value})}/><br/>
                     FirstName: <input value={account.firstName} onChange={(e) => setAccount({...account, firstName: e.target.value})}/><br/>
                     LastName: <input value={account.lastName} onChange={(e) => setAccount({...account, lastName: e.target.value})}/><br/>
