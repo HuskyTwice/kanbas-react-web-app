@@ -33,7 +33,7 @@ function Account() {
     return (
         <div className="w-50">
             <h1>Account</h1>
-            {/* {account} This is account */}
+            <pre>{JSON.stringify(account, null, 2)}</pre>
             {account && (
                 <div>
                     Username: <input value={account.username}/><br/>
