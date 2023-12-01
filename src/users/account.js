@@ -36,7 +36,7 @@ function Account() {
             <pre>{JSON.stringify(account, null, 2)}</pre>
             {account && (
                 <div>
-                    Username: <input value={account.username}/><br/>
+                    {/* Username: <input value={account.username}/><br/> */}
                     Password: <input value={account.password} onChange={(e) => setAccount({...account, password: e.target.value})}/><br/>
                     FirstName: <input value={account.firstName} onChange={(e) => setAccount({...account, firstName: e.target.value})}/><br/>
                     LastName: <input value={account.lastName} onChange={(e) => setAccount({...account, lastName: e.target.value})}/><br/>

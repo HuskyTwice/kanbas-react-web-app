@@ -22,7 +22,7 @@ function UserTable() {
             console.log(err);
         }
     };
-    const updateUser = async () => {
+    const updateUser = async (user) => {
         try {
             const status = await client.updateUser(user);
             setUsers(users.map((u) => (u._id === user._id ? user : u)));
@@ -30,7 +30,7 @@ function UserTable() {
             console.log(err);
         }
     };
-    const deleteUser = async () => {
+    const deleteUser = async (user) => {
         try {
             await client.deleteUser(user);
             setUsers(users.filter((u) => u._id !== user._id));
