@@ -3,7 +3,8 @@ const request = axios.create({ // create a configured instance of axios
     withCredentials: true      // turn on cookies
 });
 
-export const BASE_API = process.env.REACT_APP_BASE_API_URL;
+// export const BASE_API = process.env.REACT_APP_BASE_API_URL;
+const BASE_API = "https://kanbas-node-server-app-for-a6.onrender.com";
 export const USERS_API = `${BASE_API}/api/users`;
 
 export const signin = async (credentials) => {
