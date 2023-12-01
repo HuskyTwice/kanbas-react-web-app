@@ -33,6 +33,7 @@ function Account() {
     return (
         <div className="w-50">
             <h1>Account</h1>
+            {account} This is account
             {account && (
                 <div>
                     Id: <input value={account._id}/><br/>
