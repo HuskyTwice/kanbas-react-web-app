@@ -4,7 +4,7 @@ import { Link, useNavigate, useParams } from "react-router-dom";
 
 function Account() {
     const { id } = useParams();
-    const [account, setAccount] = useState(null);
+    const [account, setAccount] = useState({});
     const navigate = useNavigate();
     const findUserById = async (id) => {
         const user = await client.findUserById(id);
