@@ -22,7 +22,7 @@ function UserTable() {
             console.log(err);
         }
     };
-    const updateUser = async (user) => {
+    const updateUser = async () => {
         try {
             const status = await client.updateUser(user);
             setUsers(users.map((u) => (u._id === user._id ? user : u)));
